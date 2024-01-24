@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.desolve.services.protocol";
+option java_outer_classname = "WorkerProto";
+
+package io.desolve.services.protocol;
+
+service Worker {
+  rpc StartTaskWork (WorkerRequest) returns (WorkerReply) {}
+  rpc ReceiveTaskUpdate (TaskUpdateReqeust) returns (TaskUpdateResponse) {}
+}
+
+// Task updates
+message TaskUpdateReqeust {
+  string artifactUniqueId = 1;
+}
+
+message TaskUpdateResponse {
+  string artifactUniqueId = 1;
+  QueueStatus status = 2;
+  BuildStatus buildStatus = 4;
+  repeated string buildLog = 5;
+  string buildAdditionalInformation = 3;
+}
+
+// Working
+message WorkerRequest {
+  DependencyLocation specification = 1;
+  string artifactUniqueId = 3;
+  string timestamp = 4;
+}
+
+message WorkerReply {
+  TaskQueueStatus status = 1;
+  string artifactUniqueId = 2;
+  string workerUniqueId = 4;
+}
+
+message DependencyLocation {
+  string groupId = 1;
+  string artifactId = 2;
+  string version = 3;
+  string fileId = 4;
+
+  string repositoryUrl = 5;
+  string branch = 6;
+  Authentication authentication = 7;
+}
+
+message Authentication {
+  string username = 1;
+  string password = 2;
+}
+
+// Enums
+enum TaskQueueStatus {
+  SUCCESS = 0;
+  FAILURE = 1;
+  EXTERNALLY_QUEUED = 2;
+}
+
+enum BuildStatus {
+  SUCCEEDED = 0;
+  FAILED = 1;
+}
+
+enum QueueStatus {
+  QUEUED = 0;
+  BUILDING = 1;
+  BUILT = 2;
+}

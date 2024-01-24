@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artifacts
+  labels:
+    app: artifacts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: artifacts
+  template:
+    metadata:
+      labels:
+        name: artifacts
+    spec:
+      containers:
+        - name: artifacts
+          image: artifacts:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

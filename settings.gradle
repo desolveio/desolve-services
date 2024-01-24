@@ -1,0 +1,24 @@
+rootProject.name = "desolve-services"
+include(
+    // artifacts
+    "artifacts",
+    "artifacts-dao",
+    "artifacts-helper",
+    // workers
+    "workers",
+    // website
+    "repository",
+    // core
+    "core",
+    "mail",
+    "containers",
+    "distcache",
+    "discovery",
+    "library-loader",
+    // persistence
+    "profiles",
+    "store",
+    // protocol
+    "protocol",
+    "protocol-stub"
+)

@@ -1,0 +1,13 @@
+dependencies {
+    compileOnly "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:$kotlinSerializationVersion"
+
+    compileOnly "io.ktor:ktor-server-auth-jvm:$ktorVersion"
+    compileOnly "io.ktor:ktor-server-auth-jwt-jvm:$ktorVersion"
+
+    compileOnly project(":containers")
+    compileOnly project(":store")
+    compileOnly project(":distcache")
+
+    // KMongo
+    compileOnly "org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion"
+}

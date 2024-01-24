@@ -1,0 +1,4 @@
+dependencies {
+    // we want to keep this as API
+    api "org.lz4:lz4-java:$lz4Version"
+}

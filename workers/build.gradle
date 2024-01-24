@@ -1,0 +1,22 @@
+plugins {
+    id "application"
+}
+
+application {
+    mainClassName "io.desolve.services.workers.DesolveWorkerBootstrap"
+}
+
+dependencies {
+    implementation project(":protocol-stub")
+    implementation project(":core")
+    implementation project(":discovery")
+    implementation project(":distcache")
+    implementation project(":artifacts-helper")
+    implementation project(":store")
+    implementation project(":artifacts-dao")
+
+    implementation "org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion"
+
+    implementation "club.minnced:discord-webhooks:$webhooksVersion"
+    implementation "io.desolve.repository:parser:$desolveRepositoryVersion"
+}

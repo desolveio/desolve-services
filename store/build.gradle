@@ -1,0 +1,7 @@
+dependencies {
+    compileOnly "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:$kotlinSerializationVersion"
+    compileOnly project(":containers")
+
+    // KMongo
+    implementation "org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion"
+}

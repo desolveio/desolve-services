@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: workers
+  labels:
+    app: workers
+spec:
+  selector:
+    name: workers
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      name: grpc
+  type: NodePort

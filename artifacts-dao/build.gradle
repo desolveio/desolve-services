@@ -1,0 +1,6 @@
+dependencies {
+    compileOnly project(":store")
+
+    compileOnly "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:$kotlinSerializationVersion"
+    compileOnly "org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion"
+}

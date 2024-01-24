@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.desolve.services.protocol";
+option java_outer_classname = "ContainerProto";
+
+package io.desolve.services.protocol;
+
+service Container {
+  rpc DockerInfo (ContainerRequest) returns (ContainerResponse) {}
+}
+
+// Containers
+message ContainerRequest {
+  string containerId = 1;
+}
+
+message ContainerResponse {
+  string jsonResponse = 1;
+}

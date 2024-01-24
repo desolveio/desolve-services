@@ -1,0 +1,12 @@
+dependencies {
+    compileOnly project(":protocol-stub")
+    compileOnly project(":distcache")
+    compileOnly project(":profiles")
+
+    implementation project(":store")
+    implementation project(":containers")
+    implementation project(":discovery")
+
+    api "io.sentry:sentry:$sentryVersion"
+    api "org.reflections:reflections:$reflectionsVersion"
+}

@@ -1,0 +1,33 @@
+plugins {
+    id "application"
+    id "java"
+}
+
+application {
+    mainClassName "io.desolve.services.repository.DesolveRepositoryBootstrap"
+}
+
+dependencies {
+    implementation project(":profiles")
+    implementation project(":protocol-stub")
+    implementation project(":core")
+    implementation project(":discovery")
+    implementation project(":distcache")
+    implementation project(":artifacts-helper")
+    implementation project(":store")
+    implementation project(":artifacts-dao")
+
+    implementation "org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion"
+
+    implementation "io.ktor:ktor-server-metrics:$ktorVersion"
+    implementation "io.ktor:ktor-server-metrics-micrometer:$ktorVersion"
+    implementation "io.micrometer:micrometer-registry-prometheus:$micrometerRegistry"
+
+    implementation "io.ktor:ktor-server-core-jvm:$ktorVersion"
+    implementation "io.ktor:ktor-server-netty-jvm:$ktorVersion"
+    implementation "io.ktor:ktor-server-status-pages-jvm:$ktorVersion"
+    implementation "io.ktor:ktor-server-default-headers-jvm:$ktorVersion"
+
+    implementation "io.desolve.repository:parser:$desolveRepositoryVersion"
+    implementation "io.desolve.repository:common:$desolveRepositoryVersion"
+}

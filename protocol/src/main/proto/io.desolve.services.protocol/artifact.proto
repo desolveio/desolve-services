@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.desolve.services.protocol";
+option java_outer_classname = "ArtifactProto";
+
+package io.desolve.services.protocol;
+
+service Stowage {
+  rpc StowArtifacts (StowArtifactRequest) returns (StowArtifactReply) {}
+  rpc LookupArtifact (ArtifactLookupRequest) returns (ArtifactLookupReply) {}
+}
+
+// Storage
+message StowArtifactRequest {
+  string artifactUniqueId = 1;
+  map<string, bytes> content = 2;
+}
+
+message StowArtifactReply {
+  string serverUniqueId = 1;
+}
+
+// Lookup
+message ArtifactLookupRequest {
+  string artifactUniqueId = 1;
+  string artifactServerId = 2;
+}
+
+message ArtifactLookupReply {
+  ArtifactLookupResult result = 1;
+  map<string, bytes> content = 2;
+}
+
+enum ArtifactLookupResult {
+  EXISTS = 0;
+  NOT_FOUND = 1;
+}
