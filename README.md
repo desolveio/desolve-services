@@ -1,4 +1,14 @@
 # Desolve Services
+A mono repo holding all of Desolve's internal microservices. Although this was never used or completed, it is a project that allowed me to explore technologies and methodologies I now use daily.
+
+**Tech Stack:**
+- KTor serving all of the external web content
+- gRPC on HTTP for interservice communication
+- Protobuf for model building and serialization
+- Mongo for user profile and build metadata storage
+- Jakarta mail for email delivery
+- Redis for build -> storage server mappings
+- Consul for service discovery
 
 ### Development Environment
 Desolve services depend on a containerized environment to run properly.
